@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: DSSP-TargetNode-16
+  annotations:
+    github.com/project-slug: BackstageSSPPoC/DSSP-TargetNode-16
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: DSSP-TargetNode-16
+    sonarqube.org/project-key: dssp-targetnode-16
+    jenkins.io/job-full-name: Backstage_SSP_PoC/DSSP-TargetNode-16/main
+    argocd/app-name: dssp-targetnode-16-dev
+    prometheus.io/rule: "kube_pod_status_phase{pod=~'dssp-targetnode-16.*'}|phase,kube_pod_container_status_restarts_total{pod=~'dssp-targetnode-16.*'}|container"
+    prometheus.io/alert: "KubePodCrashLooping,KubeDeploymentReplicasMismatch,KubePodNotReady,KubeContainerWaiting,KubeContainerOOMKilled,KubeDeploymentRolloutStuck"
+    prometheus.io/labels: "namespace=dev"
+    grafana/overview-dashboard: 'http://34.29.242.32/grafana/d/ffuuiuytw0f0gb/backstage-view?var-pod_prefix=dssp-targetnode-16&var-namespace=dev&kiosk' 
+  tags:
+    - nodejs
+    - scaffolded
+spec:
+  type: service
+  lifecycle: Dev
+  owner: user:default/chaitanya-shekhar-pandey
+  system: dssp-platform
